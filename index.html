@@ -3,7 +3,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- PWA ISO Meta -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#fff" />
+    <meta name="apple-mobile-web-app-title" content="Kks Portfolio" />
+    <!-- //PWA ISO Meta -->
+
     <title>포트폴리오</title>
+
+    <!-- Manifest -->
+    <link rel="manifest" href="./manifest.json" />
+    <!-- //Manifest -->
+
+    <!-- PWA ISO Link -->
+    <link rel="apple-touch-icon" sizes="96x96" href="/portfolio/image/favicon/icon-96x96.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/portfolio/image/favicon/icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="/portfolio/image/favicon/icon-192x192.png">
+    <!-- //PWA ISO Link -->
+
+    <!-- 홈 화면에서 표시되는 앱 아이콘을 지정 -->
+    <link rel="stylesheet" href="/portfolio/css/scss/ui.css">
+    <script type="text/javascript" src="https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js"></script>
+    <!--script type="text/javascript" src="/portfolio/js/ui/pwa.js" charset="utf-8"></script-->
+    <script type="text/javascript" src="/portfolio/js/ui/ui_class.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    if ( 'serviceWorker' in navigator ) {
+        window.addEventListener('load', function(){
+            navigator.serviceWorker.register('service-worker.js');
+        });
+    }
+    </script>
 </head>
 <body>
 
