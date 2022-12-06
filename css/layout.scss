@@ -1,0 +1,251 @@
+@charset "utf-8";
+
+body {
+    /*background:url("../image/main_image3.jpg") center center no-repeat;
+    background-size:cover;
+    background-attachment:fixed;*/
+}
+
+/* [Layout] - Wrap */
+.wrap {
+    padding:50px 0;
+}
+
+/* [Layout] - Mobile Menu */
+.mobile_menu {
+    padding:0 15px;
+
+    // Mixin Position
+    @include position(relative, $index:4);
+
+    .button {
+        // Mixin Position
+        @include position(relative);
+
+        a {
+            display:block;
+            padding:15px 15px 14px;
+            font-size:15px;
+            color:#333;
+            text-decoration:none;
+
+            // Mixin Border
+            @include border($size:1px, $color:#f1f1f1);
+        }
+        .icon {
+            width:24px;
+            height:12px;
+
+            // Mixin Position
+            @include position(absolute, $top:20px, $right:15px, $index:-1);
+            // Transition
+            @include transition($type:all, $speed:0.3s);
+
+            &:before,
+            &:after {
+                content:"";
+                width:1px;
+                height:12px;
+
+                // Mixin Position
+                @include position(absolute, $top:0, $left:8px);
+                // Mixin Background
+                @include background($color:#aaa);
+            }
+            &:before {
+                // Mixin Position
+                @include transform(rotate(-45deg));
+            }
+            &:after {
+                left:16px;
+
+                // Mixin Position
+                @include transform(rotate(45deg));
+            }
+        }
+    }
+    .layer {
+        width:100%;
+        margin:0;
+        padding:0 15px;
+        visibility:hidden;
+
+        // Mixin Position
+        @include position(absolute, $top:50px, $left:0, $index:300);
+        // Mixin Opacity
+        @include opacity(0);
+        // Transition
+        @include transition($type:all, $speed:0.3s);
+        // Mixin Box-sizing
+        @include box_sizing(border-box);
+
+        ul {
+            margin:0;
+            padding:15px 0;
+
+            // Mixin Border
+            @include border($size:1px, $color:#f1f1f1);
+            // Mixin Border
+            @include border($course:border-top, $show:false);
+            // Mixin Background
+            @include background($color:#fff);
+
+            li {
+                list-style:none;
+
+                a {
+                    display:block;
+                    padding:5px 15px;
+                    font-size:14px;
+                    color:#666;
+                    text-decoration:none;
+                }
+            }
+        }
+    }
+
+    &.mobile_menu_active {
+        .icon {
+            // Mixin Position
+            @include transform(rotate(-180deg));
+        }
+        .layer {
+            visibility:visible;
+
+            // Mixin Opacity
+            @include opacity(1);
+        }
+    }
+}
+
+/* [Layout] - Scroll Icon */
+.scroll_icon {
+    display:none;
+    width:40px;
+    height:60px;
+    font-size:11px;
+    color:#000;
+    text-align:center;
+
+    // Mixin Position
+    @include position(fixed, $bottom:50px, $left:50%);
+    // Mixin Position
+    @include transform(translateX(-50%));
+
+    .icon {
+        width:14px;
+        height:8px;
+
+        // Mixin Position
+        @include position(absolute, $top:15px, $left:50%);
+        // Mixin Position
+        @include transform(translateX(-50%));
+        // Mixin Animation
+        @include animation($name:slideScroll, $duration:1s, $count:infinite);
+
+        &:before,
+        &:after {
+            content:"";
+            width:9px;
+            height:1px;
+
+            // Mixin Position
+            @include position(absolute, $top:4px, $left:0);
+            // Mixin Background
+            @include background($color:#000);
+        }
+        &:before {
+            // Mixin Position
+            @include transform(rotate(45deg));
+        }
+        &:after {
+            left:6px;
+
+            // Mixin Position
+            @include transform(rotate(-45deg));
+        }
+
+        @for $i from 1 to 4 {
+            &.icon#{$i} {
+                @if( $i == 1 ){
+                    top:25px;
+                } @else if( $i == 2 ){
+                    top:32px;
+
+                    // Mixin Animation
+                    @include animation($delay:0.1s);
+                } @else {
+                    top:39px;
+
+                    // Mixin Animation
+                    @include animation($delay:0.2s);
+                }
+            }
+        }
+    }
+}
+@keyframes slideScroll {
+    0% {
+        // Mixin Opacity
+        @include opacity(0);
+    }
+    50% {
+        // Mixin Opacity
+        @include opacity(1);
+    }
+    100% {
+        // Mixin Opacity
+        @include opacity(0);
+    }
+}
+
+/* [Media Query] - 태블릿 세로형 */
+@media all and (min-width:481px) {
+    /* [Common] - Mobile Menu */
+    .mobile_menu {}
+    .mobile_menu_fixed {
+        width:100%;
+        padding:20px 15px;
+
+        // Mixin Position
+        @include position(fixed, $top:0, $left:0, $index:100);
+        // Mixin Background
+        @include background($color:#fff);
+        // Mixin Box-sizing
+        @include box_sizing(border-box);
+        
+    }
+}
+
+/* [Media Query] - 태블릿 가로형 */
+@media all and (min-width:768px) {
+    /* [Common] - Mobile Menu */
+    .mobile_menu {
+        display:none;
+    }
+}
+
+/* [Media Query] - 웹 */
+@media all and (min-width:1200px) {
+    /* [Layout] - Wrap */
+    .wrap {
+        overflow:hidden;
+        width:100%;
+        padding-top:80px;
+    }
+
+    /* [Layout] - Scroll Icon */
+    .scroll_icon {
+        display:block;
+
+        // Mixin Opacity
+        @include opacity(1);
+        // Transition
+        @include transition($type:all, $speed:0.5s);
+
+        &.scroll_icon_disable {
+            // Mixin Opacity
+            @include opacity(0);
+        }
+    }
+}

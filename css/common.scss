@@ -1,0 +1,251 @@
+@charset "utf-8";
+
+/* [Font] - 지마켓 폰트(Medium) */
+@font-face {
+    font-family:'GmarketSansMedium';
+    font-weight:normal;
+    font-style:normal;
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+}
+/* [Font] - 지마켓 폰트(Bold) */
+@font-face {
+    font-family:'GmarketSansBold';
+    font-weight:normal;
+    font-style:normal;
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+}
+
+/* [Common] - hidden */
+.body_hidden {
+    overflow:hidden;
+}
+
+/* [Common] - 해상도별 */
+.device_web {
+    display:none;
+}
+.device_mobile {
+    display:block;
+}
+
+/* [Common] - 모션 */
+.item_mt_default {
+    visibility:hidden;
+
+    // Mixin Position
+    @include position(relative, $top:40px);
+    // Mixin Opacity
+    @include opacity(0);
+    // Transition
+    @include transition($type:all, $speed:0.4s);
+}
+.item_mt_active {
+    top:0;
+    visibility:visible;
+
+    // Mixin Opacity
+    @include opacity(1);
+}
+/* [Common] - UP 모션 */
+.animate_up_default {
+    $type_property:opacity, transform;
+
+    // Mixin Opacity
+    @include opacity(0);
+    // Transform
+    @include transform(translateY(60px));
+    // Transition
+    @include transition($type:$type_property, $speed:0.6s);
+
+    // 2~20번 순서로 delay 적용
+    @for $i from 1 through 20 {
+        @if( $i % 2 == 0 ){
+            &.animate_up_#{$i} {
+                // Mixin Opacity
+                @include opacity(1);
+                // Transform
+                @include transform(translateY(0));
+                // Transition
+                @include transition($delay: unquote(calc($i/10) + "s"));
+            }
+        }
+    }
+}
+
+/* [Common] - h1Type */
+.h1Type {
+    margin:0 0 20px;
+    font-size:30px;
+    font-family:"GmarketSansBold";
+    color:#1e1f21;
+    letter-spacing:-1px;
+    text-align:center;
+
+    .text {
+        // Transition
+        @include transition($type:color, $speed:0.6s);
+    }
+
+    &.h1Title_animate {
+        .text {
+            color:#e95440;
+
+            // Transition
+            @include transition($delay:1.6s);
+        }
+    }
+}
+
+/* [Common] - TabType */
+.tabType {
+    display:none;
+    margin:0;
+    padding:0 30px;
+
+    // Display
+    @include display-flex-wrap(wrap);
+    // Display
+    @include display-justify-content(center);    
+
+    li {
+        width:50%;
+        text-align:center;
+        list-style:none;
+
+        a {
+            display:block;
+            margin:5px;
+            padding:8px 15px 5px;
+            font-size:16px;
+            color:#1e1f21;
+            letter-spacing:-0.5px;
+            text-decoration:none;
+
+            // Mixin Border
+            @include border($size:1px, $color:#292a2c);
+            // Mixin Border-radius
+            @include border-radius(20px);
+        }
+    }
+
+    &.tabType_fixed {
+        width:100%;
+        padding:20px 30px;
+
+        // Mixin Position
+        @include position(fixed, $top:0, $left:0, $index:100);
+        // Mixin Background
+        @include background($color:#fff);
+        // Mixin Box-sizing
+        @include box_sizing(border-box);
+    }
+}
+
+/* [Media Query] - 태블릿 세로형 */
+@media all and (min-width:481px) {
+    /* [Common] - h1Type */
+    .h1Type {
+        margin-bottom:25px;
+        font-size:35px;
+    }
+
+    /* [Common] - TabType */
+    .tabType li a {
+        padding:10px 20px 7px;
+        font-size:18px;
+    }
+}
+
+/* [Media Query] - 태블릿 가로형 */
+@media all and (min-width:768px) {
+    /* [Common] - h1Type */
+    .h1Type {
+        margin:0 0 30px;
+        font-size:40px;
+    }
+
+    /* [Common] - TabType */
+    .tabType {
+        display:flex;
+
+        li {
+            a {
+                $type_property:color, background-color;
+
+                padding:10px 26px 7px;
+                font-size:20px;
+
+                // Mixin Border-radius
+                @include border-radius(22px);
+                // Mixin Background
+                @include background($color:#fff);
+                // Transition
+                @include transition($type:$type_property, $speed:0.3s);
+
+                &:hover {
+                    color:#fff;
+
+                    // Mixin Background
+                    @include background($color:#1e1f21);
+                }
+            }
+            
+            &.active a {
+                color:#fff;
+
+                // Mixin Background
+                @include background($color:#1e1f21);
+            }
+        }
+    }
+}
+
+/* [Media Query] - 웹 */
+@media all and (min-width:1200px) {
+    /* [Common] - 해상도별 */
+    .device_web {
+        display:block;
+    }
+    .device_mobile {
+        display:none;
+    }
+    
+    /* [Common] - h1Type */
+    .h1Type {
+        margin:0 0 30px;
+        font-size:60px;
+    }
+
+    /* [Common] - TabType */
+    .tabType {
+        li {
+            // Mixin Flex Size
+            @include display-flex-size();
+
+            a {
+                padding:8px 26px 4px;
+                font-size:24px;
+            }
+        }
+    }
+}
+
+/* [Media Query] - 웹 */
+@media all and (min-width:1420px) {
+    /* [Common] - h1Type */
+    .h1Type {
+        margin:0 0 20px;
+        font-size:65px;
+    }
+
+    /* [Common] - TabType */
+    .tabType li {
+        // Mixin Flex Size
+        @include display-flex-size($grow:0, $shrink:0, $basis:300px);
+
+        a {
+            padding:8px 26px 4px;
+            font-size:26px;
+        }
+    }
+}

@@ -1,0 +1,188 @@
+@charset "utf-8";
+
+// Flex
+@mixin display-flex($value){
+    -webket-display : $value;
+       -moz-display : $value;
+        -ms-display : $value;
+            display : $value;
+}
+
+// Flex Flex-direction(default "row")
+@mixin display-flex-direction($course:row){
+    -webket-flex-direction : $course;
+       -moz-flex-direction : $course;
+        -ms-flex-direction : $course;
+            flex-direction : $course;
+}
+
+// Flex Flex-wrap(default "nowrap")
+@mixin display-flex-wrap($wrap:nowrap){
+    -webket-flex-wrap : $wrap;
+       -moz-flex-wrap : $wrap;
+        -ms-flex-wrap : $wrap;
+            flex-wrap : $wrap;
+}
+
+// Flex Justify-Content(default "flex-start")
+@mixin display-justify-content($align:flex-start){
+    -webket-justify-content : $align;
+       -moz-justify-content : $align;
+        -ms-justify-content : $align;
+            justify-content : $align;
+}
+
+// Flex Align-items(default "stretch")
+@mixin display-align-items($align:stretch){
+    -webket-align-items : $align;
+       -moz-align-items : $align;
+        -ms-align-items : $align;
+            align-items : $align;
+}
+
+// Flex Size(default flex:1;)
+@mixin display-flex-size($grow:1, $shrink:1, $basis:0%){
+    -webket-flex-grow : $grow;
+       -moz-flex-grow : $grow;
+        -ms-flex-grow : $grow;
+            flex-grow : $grow;
+    -webket-flex-shrink : $shrink;
+       -moz-flex-shrink : $shrink;
+        -ms-flex-shrink : $shrink;
+            flex-shrink : $shrink;
+    -webket-flex-basis : $basis;
+       -moz-flex-basis : $basis;
+        -ms-flex-basis : $basis;
+            flex-basis : $basis;
+                 
+}
+
+// Position
+@mixin position($type, $top:null, $right:null, $bottom:null, $left:null, $index:null){
+    position:$type;
+    top:$top;
+    right:$right;
+    bottom:$bottom;
+    left:$left;
+    z-index:$index;
+}
+
+// Float Clear
+@mixin float_clear($type){
+    @if( $type ){
+        width:100%;
+    } @else {
+        *zoom:1;
+    }
+
+    &::after {
+        content:"";
+        display:block;
+        clear:both;
+    }    
+}
+
+// Border(default "1px solid #ccc")
+@mixin border($course:null, $size:null, $style:solid, $color:null, $show:true){
+    @if( $course ){
+        @if( $show ){
+            $course : $size $style $color;
+        } @else {
+            $course : "none";
+        }
+    } @else {
+        @if( $show ){
+            border : $size $style $color;
+        } @else {
+            border : "none";
+        }
+    }
+}
+
+// Border-radius(default "1px")
+@mixin border-radius($size:1px){
+    -webkit-border-radius : $size;
+       -moz-border-radius : $size;
+        -ms-border-radius : $size;
+            border-radius : $size;
+}
+
+// Background
+@mixin background($color:null, $url:null, $pos:0 0, $repeat:no-repeat, $size:null){
+    // 색상 적용
+    background-color:$color;
+
+    // 이미지를 등록
+    @if( $url ){
+        background-image:$url;
+        background-position:$pos;
+        background-repeat:$repeat;
+    }
+
+    // 배경 사이즈
+    background-size:$size;
+}
+
+// Opacity
+@mixin opacity($value){
+    filter:alpha(opaticy=$value);
+           -moz-opacity : $value;
+                opacity : $value;
+}
+
+// Box-shadow
+@mixin box_shadow($value){
+    -webkit-box-shadow : $value;
+       -moz-box-shadow : $value;
+            box-shadow : $value;
+}
+
+// Transform
+@mixin transform($value){
+    -webkit-transform : $value;
+       -moz-transform : $value;
+        -ms-transform : $value;
+            transform : $value;
+}
+
+// Transition
+@mixin transition($type:null, $speed:null, $timing:null, $delay:null){
+    -webkit-transition-property : $type;
+       -moz-transition-property : $type;
+            transition-property : $type;
+    -webkit-transition-duration : $speed;
+       -moz-transition-duration : $speed;
+            transition-duration : $speed;
+    -webkit-transition-timing-function : $timing;
+       -moz-transition-timing-function : $timing;
+            transition-timing-function : $timing;
+    -webkit-transition-delay : $delay;
+       -moz-transition-delay : $delay;
+            transition-delay : $delay;
+}
+
+// Animation
+@mixin animation($name:null, $duration:null, $delay:null, $timing:linear, $count:1){
+    -webkit-animation-name : $name;
+       -moz-animation-name : $name;
+            animation-name : $name;
+    -webkit-animation-duration : $duration;
+       -moz-animation-duration : $duration;
+            animation-duration : $duration;
+    -webkit-animation-delay : $delay;
+       -moz-animation-delay : $delay;
+            animation-delay : $delay;
+    -webkit-animation-timing-function : $timing;
+       -moz-animation-timing-function : $timing;
+            animation-timing-function : $timing;
+    -webkit-animation-iteration-count : $count;
+       -moz-animation-iteration-count : $count;
+            animation-iteration-count : $count;
+}
+
+// Box Sizing
+@mixin box_sizing($value){
+    -webkit-box-sizing : $value;
+       -moz-box-sizing : $value;
+            box-sizing : $value;
+}

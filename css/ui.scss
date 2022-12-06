@@ -1,0 +1,1191 @@
+@charset "utf-8";
+
+@import "reset.scss", "mixin.scss", "layout.scss", "common.scss";
+
+/* Bg 아이콘 레이어 */
+.bg_defalut {
+    pointer-events:none;
+
+    // Mixin Position
+    @include position(fixed, $index:-1);
+
+    &:last-child {
+        filter:blur(20px);
+    }
+}
+.bg_circle {
+    pointer-events:none;
+
+    // Mixin Position
+    @include position(fixed, $index:-1);
+    // Mixin Border-radius
+    @include border-radius(50%);
+}
+@for $i from 1 to 4 {
+    .bg_circle_#{$i} {
+        // Mixin Opacity
+        @include opacity(0.8);
+
+        @if( $i == 1 ){
+            width:200px;
+            height:200px;
+
+            // Mixin Box_shadow
+            @include box_shadow(#{inset 0 0 90px #fff, inset 90px 0px 250px #c7e2ff, inset -90px 0 250px #e95440, inset 90px 0 520px #ff0400, inset -90px 420px 520px #dff});
+            // Mixin Animation
+            @include animation($name:frame_clircle_1, $duration:16s, $count:infinite);
+        } @else if( $i == 2 ){
+            width:250px;
+            height:250px;
+            bottom:2%;
+            left:0%;
+
+            // Mixin Box_shadow
+            @include box_shadow(#{inset 0 0 90px #fff, inset 90px 0px 250px #c7e2ff, inset -90px 0 250px #00ffea, inset 90px 0 520px #00ff81, inset -90px 420px 520px #dff});
+            // Mixin Animation
+            @include animation($name:frame_clircle_2, $duration:18s, $count:infinite);
+        } @else {
+            width:300px;
+
+            // Mixin Animation
+            @include animation($name:frame_clircle_3, $duration:18s, $count:infinite);
+        }
+    }
+}
+@keyframes frame_clircle_1 {
+    0% {
+        bottom:-2%;
+        right:-12%;
+    }
+    25% {
+        bottom:2%;
+        right:-8%;
+    }
+    50% {
+        bottom:6%;
+        right:-10%;
+    }
+    75% {
+        bottom:2%;
+        right:-8%;
+    }
+    100% {
+        bottom:-2%;
+        right:-12%;
+    }
+}
+@keyframes frame_clircle_2 {
+    0% {
+        bottom:2%;
+        left:-6%;
+    }
+    25% {
+        bottom:10%;
+        left:-2%;
+    }
+    50% {
+        bottom:18%;
+        left:-4%;
+    }
+    75% {
+        bottom:10%;
+        left:-2%;
+    }
+    100% {
+        bottom:2%;
+        left:-6%;
+    }
+}
+@keyframes frame_clircle_3 {
+    0% {
+        top:2%;
+        right:-12%;
+    }
+    25% {
+        top:6%;
+        right:-8%;
+    }
+    50% {
+        top:16%;
+        right:-10%;
+    }
+    75% {
+        top:6%;
+        right:-8%;
+    }
+    100% {
+        top:2%;
+        right:-12%;
+    }
+}
+
+/* Project List */
+.project_list {
+    margin-top:40px;
+    padding:0 10px;
+
+    // Mixin Position
+    @include position(relative, $index:3);
+
+    .project_type_content {
+        display:none;
+    }
+
+    .unit {
+        margin-bottom:30px;
+
+        a {
+            display:block;
+            padding:0 5px;
+            color:#000;
+            text-decoration:none;
+        
+            // Mixin Position
+            @include position(relative);
+    
+            .image {
+                // Mixin Display
+                @include display-flex(flex);
+                // Mixin Display
+                @include display-flex-wrap(wrap);
+                // Mixin Border
+                @include border($size:1px, $color:#dbdbdb);
+                // Mixin Position
+                @include position(relative);
+    
+                img {
+                    width:100%;
+                    vertical-align:top;
+                }
+                .button {
+                    overflow:hidden;
+                    width:100%;
+                    height:100%;
+                    visibility:hidden;
+                
+                    // Mixin Opacity
+                    @include opacity(0);
+                    // Mixin Position
+                    @include position(absolute, $left:0, $top:0);
+                }
+            }
+    
+            .image_mobile {
+                padding:15px 0;
+            
+                // Mixin Display
+                @include display-justify-content(center);
+                // Mixin Background
+                @include background($url:url("../../image/main_ondisk_mobile_main_bg.jpg"), $pos:center center);
+                // Mixin Box-sizing
+                @include box_sizing(border-box);
+    
+                img {
+                    width:auto;
+                    height:100%;
+                }
+            }
+    
+            .txt {
+                margin-top:10px;
+                font-size:14px;
+                text-align:center;
+            }
+        }
+    }
+}
+
+/* [View] - 상세레이어 */
+.pop_view {
+    overflow:auto;
+    width:100%;
+    height:100%;
+    padding:40px 0 75px;
+
+    // Mixin Position
+    @include position(fixed, $left:0, $top:50px, $index:-1);
+    // Mixin Opacity
+    @include opacity(0);
+    // Mixin Background
+    @include background($color:#fff);
+    // Transition
+    @include transition($type:all, $speed:0.3s);
+    // Mixin Box-sizing
+    @include box_sizing(border-box);
+
+    .pop_view_in {
+        // Mixin Position
+        @include position(relative, $index:2);
+
+        .title {
+            margin:0 10px;
+            font : {
+                size : 30px;
+                family : "GmarketSansBold";
+            }
+            color:#d4d3d3;
+            letter-spacing:-1px;
+            text-align:center;
+        }
+        .hashtag {
+            margin:0 10px;
+            font-size:14px;
+            color:#333333;
+            text-align:center;
+        }
+        .link {
+            width:100%;
+            margin:0;
+            padding:0;
+        
+            // Mixin Position
+            @include position(fixed, $left:0, $bottom:0, $index:1000);
+            // Mixin Box-sizing
+            @include box_sizing(border-box);
+
+            a {
+                display:block;
+                padding:10px;
+                font-size:15px;
+                color:#fff;
+                text-decoration:none;
+                text-align:center;
+            
+                // Mixin Background
+                @include background($color:#1e1f21);
+            }
+        }
+        .view {
+            margin-top:30px;
+            padding:0 10px;
+
+            .explain {
+                margin-top:20px;
+
+                &:first-child {
+                    margin-top:0;
+                }
+
+                img {
+                    max-width:100%;
+                    vertical-align:top;
+                }
+                .txt {
+                    margin-top:10px;
+                    padding:10px 0 10px 19px;
+                    font-size:12px;
+                    color:#666;
+                    text-indent:-11px;
+                    text-align:left;
+                
+                    // Mixin Border
+                    @include border($course:border-top, $size:1px, $color:#eee);
+                }
+            }
+        }
+        .btn_close {
+            margin:0;
+            visibility:hidden;
+        
+            // Mixin Position
+            @include position(absolute, $right:-40px, $top:-20px);
+            // Mixin Opacity
+            @include opacity(0);
+            // Transition
+            @include transition($type:all, $speed:0.3s, $delay:0.8s);
+
+            a {
+                display:block;
+                width:40px;
+                height:40px;
+                text-indent:-9999px;
+
+                span {
+                    width:21px;
+                    height:21px;
+                
+                    // Mixin Position
+                    @include position(absolute, $left:50%, $top:50%);
+                    // Mixin Transform
+                    @include transform(translate(-50%, -50%));
+                    // Transition
+                    @include transition($type:transform, $speed:0.3s);
+
+                    &:before,
+                    &:after {
+                        content:"";
+                        width:1px;
+                        height:20px;
+                    
+                        // Mixin Position
+                        @include position(absolute, $left:10px, $top:1px);
+                        // Mixin Background
+                        @include background($color:#000000);
+                    }
+                    &:before {
+                        // Mixin Transform
+                        @include transform(rotate(45deg));
+                    }
+                    &:after {
+                        // Mixin Position
+                        @include transform(rotate(-45deg));
+                    }
+                }
+
+                &:hover span {
+                    // Mixin Transform
+                    @include transform(translate(-50%, -50%) rotate(-270deg));
+                }
+            }
+        }
+    }
+}
+
+/* 상세 레이어 스크롤 진행바 */
+.process_bar {
+    width:100%;
+    height:2px;
+
+    // Mixin Position
+    @include position(fixed, $left:0, $top:0, $index:3);
+
+    span {
+        width:0;
+        height:100%;
+    
+        // Mixin Position
+        @include position(absolute, $left:0, $top:0);
+        // Mixin Background
+        @include background($color:#e95440);
+    }
+}
+
+/* 상세 레이어 TOP 버튼 */
+.btn_top_move {
+    display:none;
+}
+
+/* 레이어 활성화 */
+.pop_view_active {
+    top:0;
+    visibility:visible;
+    z-index:100;
+
+    // Mixin Opacity
+    @include opacity(1);
+}
+.pop_view_mobile_default {
+    .pop_view_in {
+        .title,
+        .hashtag {
+            visibility:hidden;
+
+            // Mixin Position
+            @include position(relative, $top:40px);
+            // Mixin Opacity
+            @include opacity(0);
+            // Transition
+            @include transition($type:all, $speed:0.2s, $delay:0.1s);
+        }
+        .link {
+            bottom:-50px;
+        
+            // Transition
+            @include transition($type:all, $speed:0.2s, $delay:0.2s);
+        }
+        .title {
+            // Transition
+            @include transition($delay:0.2s);
+        }
+        .hashtag {
+            // Transition
+            @include transition($delay:0.3s);
+        }
+        .link {
+            // Transition
+            @include transition($delay:0.4s);
+        }
+        .btn_close {
+            right:-40px;
+            visibility:hidden;
+        
+            // Mixin Opacity
+            @include opacity(0);
+            // Transition
+            @include transition($type:all, $speed:0.2s, $delay:0.4s);
+        }
+    }
+}
+.pop_view_mobile_active {
+    .pop_view_in {
+        .title,
+        .hashtag {
+            top:0;
+            visibility:visible;
+        
+            // Mixin Opacity
+            @include opacity(1);
+        }
+        .link {
+            bottom:0;
+        }
+        .btn_close {
+            right:0;
+            visibility:visible;
+        
+            // Mixin Opacity
+            @include opacity(1);
+        }
+    }
+}
+
+/* [View] - 모션 */
+/* 상단으로 이동 */
+.pop_up_default {
+    visibility:hidden;
+
+    // Mixin Position
+    @include position(relative, $top:40px);
+    // Mixin Opacity
+    @include opacity(0);
+    // Transition
+    @include transition($type:all, $speed:0.4s);
+}
+.pop_up_active {
+    top:0;
+    visibility:visible;
+
+    // Mixin Opacity
+    @include opacity(1);
+}
+/* 우측으로 이동 */
+.pop_right_default {
+    visibility:hidden;
+
+    // Mixin Position
+    @include position(relative, $left:-40px);
+    // Mixin Opacity
+    @include opacity(0);
+    // Transition
+    @include transition($type:all, $speed:0.4s);
+}
+.pop_right_active {
+    left:0;
+    visibility:visible;
+
+    // Mixin Opacity
+    @include opacity(1);
+}
+/* 좌측으로 이동 */
+.pop_right_default {
+    visibility:hidden;
+
+    // Mixin Position
+    @include position(relative, $right:-40px);
+    // Mixin Opacity
+    @include opacity(0);
+    // Transition
+    @include transition($type:all, $speed:0.4s);
+}
+.pop_right_active {
+    right:0;
+    visibility:visible;
+
+    // Mixin Opacity
+    @include opacity(1);
+}
+
+/* [Media Query] - 태블릿 세로형 */
+@media all and (min-width:481px) {
+    /* Project List */
+    .project_list {
+        margin-top:50px;
+        padding:0 10px;
+
+        .project_type_content_in {
+            // Mixin Display
+            @include display-flex(flex);
+            // Mixin Display
+            @include display-flex-wrap(wrap);
+
+            .unit {
+                width:50%;
+
+                a {
+                    display:block;
+                    padding:0 5px;
+
+                    .txt {
+                        font-size:16px;
+                    }
+                }
+            }
+        }
+    }
+
+    /* [View] - 상세레이어 */
+    .pop_view {
+        padding:50px 0;
+
+        .pop_view_in {
+            .title {
+                font-size:40px;
+            }
+            .hashtag {
+                font-size:16px;
+            }
+            .view {
+                margin-top:35px;
+            }
+            .txt {
+                font-size:13px;
+            }
+            .btn_close {
+                right:10px;
+                top:-25px;
+    
+                a {
+                    span {
+                        width:25px;
+                        height:25px;
+        
+                        &:before,
+                        &:after {
+                            left:12px;
+                            top:0;
+                            height:24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* 레이어 활성화 */
+    .pop_view_mobile_default {
+        .btn_close {
+            right:-40px;
+        }
+    }
+    .pop_view_mobile_active {
+        .btn_close {
+            right:10px;
+        }
+    }
+}
+
+/* [Media Query] - 태블릿 가로형 */
+@media all and (min-width:768px) {
+    /* Bg 아이콘 레이어 */
+    .bg_circle_1 {
+        width:250px;
+        height:250px;
+    }
+    .bg_circle_2 {
+        width:300px;
+        height:300px;
+    }
+
+    /* Project List */
+    .project_list {
+        margin-top:60px;
+        padding:0 10px;
+
+        .project_type_content_in {
+            .unit {
+                width:33.33%;
+                margin-bottom:40px;
+    
+                a {
+                    padding:0 10px;
+    
+                    .txt {
+                        font-size:20px;
+                    }
+                }
+            }
+        }
+    }
+
+    /* [View] - 상세레이어 */
+    .pop_view {
+        padding:60px 0;
+        
+        .pop_view_in {
+            .title {
+                font-size:50px;
+                text-align:left;
+            }
+            .hashtag {
+                float:left;
+                font-size:18px;
+            }
+            .link {
+                float:right;
+                width:auto;
+                height:auto;
+                margin:0 10px;
+                padding:0 0 0 17px;
+                box-shadow:none;
+        
+                // Mixin Position
+                @include position(relative, $left:auto);
+                // Mixin Background
+                @include background($url:url("../../image/popview_icon_link.gif"), $pos:1px 4px, $size:10px 14px);
+    
+                a {
+                    padding:0;
+                    font-size:16px;
+                    color:#333333;
+            
+                    // Mixin Border-radius
+                    @include border-radius(0);
+                    // Mixin Background
+                    @include background($color:transparent);
+                }
+            }
+            .view {
+                display:inline-block;
+                clear:both;
+                width:100%;
+                margin-top:45px;
+                text-align:center;
+
+                // Mixin Box-sizing
+                @include box_sizing(border-box);
+    
+                .txt {
+                    margin-top:15px;
+                    padding:15px 0 15px 19px;
+                    font-size:14px;
+                }
+            }
+            .btn_close {
+                top:-25px;
+    
+                a {
+                    span {
+                        width:27px;
+                        height:27px;
+        
+                        &:before,
+                        &:after {
+                            left:13px;
+                            top:-1px;
+                            height:30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* 상세 레이어 스크롤 진행바 */
+    .process_bar {
+        height:4px;
+    }
+
+    /* 레이어 활성화 */
+    .pop_view_web_default {
+        .pop_view_in {
+            .title,
+            .hashtag,
+            .link {
+                visibility:hidden;
+    
+                // Mixin Position
+                @include position(relative);
+                // Mixin Opacity
+                @include opacity(0);
+                // Transition
+                @include transition($type:all, $speed:0.2s, $delay:0.1s);
+            }
+            .title {
+                left:-40px;
+        
+                // Transition
+                @include transition($delay:0.2s);
+            }
+            .hashtag {
+                left:-40px;
+        
+                // Transition
+                @include transition($delay:0.3s);
+            }
+            .link {
+                right:-40px;
+                
+                // Transition
+                @include transition($delay:0.4s);
+            }
+            .btn_close {
+                right:-40px;
+                visibility:hidden;
+        
+                // Mixin Opacity
+                @include opacity(0);
+                // Transition
+                @include transition($type:all, $speed:0.2s, $delay:0.4s);
+            }
+        }        
+    }
+    .pop_view_web_active {
+        .pop_view_in {
+            .title,
+            .hashtag {
+                left:0;
+                visibility:visible;
+        
+                // Mixin Opacity
+                @include opacity(1);
+            }
+            .link {
+                right:0;
+                visibility:visible;
+        
+                // Mixin Opacity
+                @include opacity(1);
+                // Mixin Background
+                @include background($url:url("../../image/popview_icon_link.gif"), $pos:0 4px, $size:10px 14px);
+            }
+            .btn_close {
+                right:10px;
+                visibility:visible;
+        
+                // Mixin Opacity
+                @include opacity(1);
+            }
+        }        
+    }
+}
+
+/* [Media Query] - 웹 */
+@media all and (min-width:1200px) {
+    .bg_circle_3 {
+        width:500px;
+
+        // Mixin Animation
+        @include animation($name:frame_clircle_3, $duration:18s, $count:infinite);
+    }
+    @keyframes frame_clircle_3 {
+        0% {
+            top:-2%;
+            right:-8%;
+        }
+        25% {
+            top:2%;
+            right:-4%;
+        }
+        50% {
+            top:6%;
+            right:-6%;
+        }
+        75% {
+            top:2%;
+            right:-4%;
+        }
+        100% {
+            top:-2%;
+            right:-8%;
+        }
+    }
+
+    /* Bg 아이콘 레이어 */
+    .bg_circle_1 {
+        width:500px;
+        height:500px;
+    }
+    .bg_circle_2 {
+        width:400px;
+        height:400px;
+    }
+
+    /* Project List */
+    .project_list {
+        .project_type_content_in {
+            .unit {
+                width:25%;
+                margin-bottom:50px;
+    
+                a {
+                    .image {
+                        overflow:hidden;
+                        width:100%;
+                        height:335px;
+    
+                        &:after {
+                            content:"";
+                            width:100%;
+                            height:0;
+
+                            // Mixin Animation
+                            @include animation($name:blind_bg, $duration:8s, $count:infinite);
+    
+                            // Mixin Position
+                            @include position(absolute, $bottom:0, $left:0);
+                            // Mixin Background
+                            @include background($url:url("../../image/main_list_blind_bg.png"), $repeat:repeat-x);
+                            // Transition
+                            @include transition($type:all, $speed:1.4s);
+                        }
+                        .img {
+                            // Transition
+                            @include transition($type:all, $speed:0.4s);
+                        }
+                        .button {
+                            z-index:100;
+    
+                            // Transition
+                            @include transition($type:all, $speed:0.4s);
+    
+                            .btn {
+                                padding:15px;
+                                z-index:60;
+    
+                                // Mixin Position
+                                @include position(absolute, $top:50%, $left:50%);
+                                // Mixin Border-radius
+                                @include border-radius(50%);
+                                // Mixin Background
+                                @include background($color:rgb(0, 0, 0, 0.6));
+                                // Mixin Position
+                                @include transform(translate(-50%, -50%));
+                                
+                                img {
+                                    vertical-align:top;
+                                }
+                            }
+                        }
+                    }
+                    .txt {
+                        font-size:20px;
+    
+                        span {
+                            width:100%;
+                            color:#000;
+                        }
+                    }
+    
+                    &:hover {
+                        .image {
+                            &:after {
+                                height:120%;
+                            }
+                            .img {
+                                // Mixin Position
+                                @include transform(scale(1.15));
+                            }
+                            .button {
+                                visibility:visible;
+
+                                // Mixin Opacity
+                                @include opacity(1);
+                            }
+                        }
+                        .txt {
+                            span {
+                                // Mixin Background
+                                @include background($size:100% 100%);
+                            }
+                        }
+                    }
+                }
+            }
+        }        
+    }
+    /*
+    .project_list_fiexd {
+        margin-top:155px !important;
+    }
+    */
+    @keyframes blind_bg {
+        0% {
+            background-position:0px 0;
+        }
+        25% {
+            background-position:-875px 0;
+        }
+        50% {
+            background-position:-1750px 0;
+        }
+        75% {
+            background-position:-2625px 0;
+        }
+        100% {
+            background-position:-3500px 0;
+        }
+    }
+
+    /* [View] - 상세레이어 */
+    .pop_view {
+        padding:80px 0;
+
+        .pop_view_in {
+            .title {
+                font-size:70px;
+            }
+            .hashtag {
+                font-size:20px;
+            }
+            .link {
+                padding-left:20px;
+                background-size:11px 16px;
+                background-position:3px 7px;
+            }
+            .link {
+                a {
+                    font-size:18px;
+                }
+            }
+            .view {
+                margin-top:50px;
+    
+                .explain {
+                    .txt {
+                        margin-top:20px;
+                        padding:20px 0 21px 19px;
+                        font-size:15px;
+                    }
+                }
+            }
+            .btn_close {
+                top:-15px;
+    
+                a {
+                    span {
+                        width:100%;
+                        height:100%;
+        
+                        &:before,
+                        &:after {
+                            left:19px;
+                            top:-3px;
+                            height:47px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* 상세 레이어 TOP 버튼 */
+    .btn_top_move {
+        display:block;
+        visibility:hidden;
+
+        // Mixin Position
+        @include position(fixed, $right:40px, $bottom:5px);
+        // Mixin Opacity
+        @include opacity(0);
+        // Transition
+        @include transition($type:all, $speed:0.4s);
+
+        button {
+            padding-top:50px;
+            font : {
+                weight:bold;
+                size:14px;
+                family:tahoma;
+            }
+            color:#333;
+            border:none;
+
+            // Mixin Background
+            @include background($color:transparent);
+
+            span {
+                width:1px;
+                height:35px;
+
+                // Mixin Position
+                @include position(absolute, $bottom:25px, $left:50%);
+                // Mixin Background
+                @include background($color:#333);
+
+                &:before,
+                &:after {
+                    content:"";
+                    position:absolute;
+                    top:0;
+                    width:1px;
+                    height:8px;
+                    background:#333;
+                }
+                &:before {
+                    left:-3px;
+
+                    // Mixin Position
+                    @include transform(rotate(45deg));
+                }
+                &:after {
+                    left:3px;
+
+                    // Mixin Position
+                    @include transform(rotate(-45deg));
+                }
+            }
+        }
+        &.btn_top_move_active {
+            bottom:25px;
+            opacity:1;
+            visibility:visible;
+        }
+    }
+
+    /* 레이어 활성화 */
+    .pop_view_web_default {
+        .pop_view_in {
+            .btn_close {
+                visibility:hidden;
+        
+                // Mixin Opacity
+                @include opacity(0);
+            }
+        }
+    }
+    .pop_view_web_active {
+        .pop_view_in {
+            .btn_close {
+                visibility:visible;
+        
+                // Mixin Opacity
+                @include opacity(1);
+            }
+        }
+    }
+}
+
+/* [Media Query] - 웹 */
+@media all and (min-width:1420px) {
+    /* Project List */
+    .project_list {
+        width:1600px;
+        margin:70px auto 0;
+        padding:0;
+
+        .project_type_content_in {
+            .unit {
+                width:25%;
+                margin-bottom:70px;
+
+                a {
+                    .image {
+                        height:440px;
+                    }
+                }
+            }
+        }
+    }
+
+    /* [View] - 상세레이어 */
+    .pop_view {
+        padding:100px 0;
+
+        .pop_view_in {
+            width:1420px;
+            margin:0 auto;
+
+            .hashtag {
+                left:auto;
+            }
+            .link {
+                right:-40px;
+            }
+            .view {
+                .txt {
+                    margin-top:25px;
+                    padding:25px 0 25px 19px;
+                    font-size:16px;
+                }
+            }
+            .btn_close {
+                top:-30px;
+                right:-40px;
+
+                a {
+                    span {
+                        width:35px;
+                        height:35px;
+    
+                        &:before,
+                        &:after {
+                            left:17px;
+                            top:-6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* 레이어 활성화 */
+    .pop_view_wide_default {
+        .pop_view_in {
+            .title,
+            .hashtag,
+            .link {
+                visibility:hidden;
+
+                // Mixin position
+                @include position(relative);
+                // Mixin Opacity
+                @include opacity(0);
+                // Mixin Transition
+                @include transition($type:all, $speed:0.2s, $delay:0.1s);
+            }
+            .title {
+                left:-60px;
+
+                // Mixin Transition
+                @include transition($delay:0.2s);
+            }
+            .hashtag {
+                left:-60px;
+
+                // Mixin Transition
+                @include transition($delay:0.3s);
+            }
+            .link {
+                right:-60px;
+
+                // Mixin Transition
+                @include transition($delay:0.4s);
+            }
+            .btn_close {
+                right:-60px;
+                visibility:hidden;
+
+                // Mixin Opacity
+                @include opacity(0);
+                // Mixin Transition
+                @include transition($type:all, $speed:0.2s, $delay:0.4s);
+            }
+        }
+    }
+    .pop_view_wide_active {
+        .pop_view_in {
+            .title,
+            .hashtag {
+                left:0;
+                visibility:visible;
+
+                // Mixin Opacity
+                @include opacity(1);
+            }
+            .link {
+                right:0;
+                visibility:visible;
+
+                // Mixin Opacity
+                @include opacity(1);
+            }
+            .btn_close {
+                right:10px;
+                visibility:visible;
+
+                // Mixin Opacity
+                @include opacity(1);
+            }
+        }
+    }
+}
