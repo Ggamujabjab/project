@@ -36,7 +36,458 @@
 </head>
 <body>
 
-전체내용
+<!--
+    PWA 설치를 위한 버튼을 제공
+<button type="button" class="js_button" style="display:none;">버튼</button>
+<button type="button" class="js_btn_push">푸시</button>
+-->
+
+<!-- [Layout] - Wrap -->
+<div class="wrap">
+    <!-- [Title] - h1Type -->
+    <div class="h1Type_parent">
+        <h1 class="h1Type animate_up_default">
+            <span class="text">W</span>ebFront
+            <span class="text">P</span>ortfolio
+        </h1>
+    </div>
+    <!-- //[Title] - h1Type -->
+
+    <!-- [Mobile] - Menu -->
+    <div id="js_selectMenu" class="mobile_menu animate_up_default">
+        <div class="button">
+            <a href="#">웹사이트</a>
+            <span class="icon"></span>
+        </div>
+        <div class="layer">
+            <ul>
+                <li><a href="#js_website">웹사이트</a></li>
+                <li><a href="#js_responsiveSite">반응형사이트</a></li>
+                <li><a href="#js_guide">가이드</a></li>
+                <li><a href="#js_projectTool">프로젝트관리툴</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- //[Mobile] - Menu -->
+
+    <!-- [Common] - tabType -->
+    <ul id="js_tabMenu" class="tabType animate_up_default">
+        <li><a href="#js_website">웹사이트</a></li>
+        <li><a href="#js_responsiveSite">반응형사이트</a></li>
+        <li><a href="#js_guide">가이드</a></li>
+        <li><a href="#js_projectTool">프로젝트관리툴</a></li>
+    </ul>
+    <!-- //[Common] - tabType -->
+
+    <!-- Project list -->
+    <div id="js_projectView" class="project_list animate_up_default">
+        <!-- 웹사이트 -->
+        <div id="js_website" class="project_type_content">
+            <div class="project_type_content_in">
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_ebook_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_ebook_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>Ebook 뷰어</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_player_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_player_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>Player 뷰어</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_ondisk_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_ondisk_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>온디스크 웹사이트</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_ondisk_web_main2.jpg" class="img device_web" alt="">
+                            <img src="image/main_ondisk_mobile_main2.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>온디스크 모바일사이트</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_kdisk_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_kdisk_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>케이디스크 웹사이트</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_kdisk_web_main2.jpg" class="img device_web" alt="">
+                            <img src="image/main_kdisk_mobile_main2.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>케이디스크 모바일사이트</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_admin_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_admin_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>관리자 사이트</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+            </div>
+        </div>
+        <!-- //웹사이트 -->
+
+        <!-- 반응형사이트 -->
+        <div id="js_responsiveSite" class="project_type_content">
+            <div class="project_type_content_in">
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_edu_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_edu_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>교육인생이모작지원센터</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_edu2_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_edu2_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>더센에듀</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+            </div>
+        </div>
+        <!-- //반응형사이트 -->
+
+        <!-- 가이드 -->
+        <div id="js_guide" class="project_type_content">
+            <div class="project_type_content_in">
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_guide_html_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_guide_html_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>Html Guide</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_guide_page_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_guide_page_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>Name Guide</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_guide_javascript_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_guide_javascript_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>Javascript Guide</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+            </div>
+        </div>
+        <!-- //가이드 -->
+
+        <!-- 프로젝트 관리툴 -->
+        <div id="js_projectTool" class="project_type_content">
+            <div class="project_type_content_in">
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_guide_produce_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_guide_produce_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>프로젝트 담당자 관리</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+
+                <!-- Unit -->
+                <div class="unit item_mt_default">
+                    <a href="#" class="btn_view">
+                        <div class="image">
+                            <img src="image/main_guide_page_device_web.jpg" class="img device_web" alt="">
+                            <img src="image/main_guide_page_device_mobile.jpg" class="img device_mobile" alt="">
+                            <div class="button">
+                                <div class="btn"><img src="image/btn_search.png" alt=""></div>
+                            </div>
+                        </div>
+                        <p class="txt">
+                            <span>프로젝트 페이지 관리</span>
+                        </p>
+                    </a>
+                </div>
+                <!-- //Unit -->
+            </div>
+        </div>
+        <!-- //프로젝트 관리툴 -->
+    </div>
+    <!-- //Project list -->
+
+    <!-- 상세 페이지 -->
+    <div class="pop_view">
+        <div class="pop_view_in">
+            <h2 class="title">Web/mobile</h2>
+            <p class="hashtag">#온디스크 사이트, #메인 리뉴얼, 사이트 유지보수</p>
+            <p class="link"><!--a href="#">사이트 바로가기</a--></p>
+            <div class="view">
+                <!--div class="explain pop_up_default">
+                    <img src="image/main_view1.jpg" alt="">
+                    <p class="txt">- 온디스크 메인으로 프레임셋 구조로 되어있으며 Html, Css, Javascript로 구현함</p>
+                </div>
+                <div class="explain pop_up_default">
+                    <img src="image/main_view1.jpg" alt="">
+                    <p class="txt">- 온디스크 메인으로 프레임셋 구조로 되어있으며 Html, Css, Javascript로 구현함</p>
+                </div>
+                <div class="explain pop_up_default">
+                    <img src="image/main_view1.jpg" alt="">
+                    <p class="txt">- 온디스크 메인으로 프레임셋 구조로 되어있으며 Html, Css, Javascript로 구현함</p>
+                </div>
+                <div class="explain pop_up_default">
+                    <img src="image/main_view1.jpg" alt="">
+                    <p class="txt">- 온디스크 메인으로 프레임셋 구조로 되어있으며 Html, Css, Javascript로 구현함</p>
+                </div-->
+            </div>
+            <p class="btn_close">
+                <a href="#">
+                    닫기
+                    <span></span>
+                </a>
+            </p>
+        </div>
+
+        <!-- 스크롤 진행률 체크(상단바) -->
+        <div class="process_bar">
+            <span></span>
+        </div>
+        <!-- //스크롤 진행률 체크(상단바) -->
+
+        <!-- 라운드 아이콘 Bg -->
+        <div class="bg_circle bg_circle_2"></div>
+        <!-- //라운드 아이콘 Bg -->
+
+        <!-- 상단 이동 버튼 -->
+        <div class="btn_top_move">
+            <button type="button">
+                TOP
+                <span></span>
+            </button>
+        </div>
+        <!-- //상단 이동 버튼 -->
+    </div>
+    <!-- //상세 페이지 -->
+
+    <!-- 아이콘 스크롤 -->
+    <div class="scroll_icon">
+        Scroll
+        <span class="icon icon1"></span>
+        <span class="icon icon2"></span>
+        <span class="icon icon3"></span>
+    </div>
+    <!-- //아이콘 스크롤 -->
+
+    <!-- 라운드 아이콘 Bg -->
+    <div class="bg_circle bg_circle_1"></div>
+    <!-- //라운드 아이콘 Bg -->
+
+    <!-- 배경 아이콘 Bg -->
+    <!--div class="bg_defalut bg_circle_3">
+        <svg viewBox="0 0 800 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+            <g transform="translate(121.78795623779297, 47.74541473388672)">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: rgb(238, 205, 163);"></stop>
+                        <stop offset="100%" style="stop-color: rgb(239, 98, 159);"></stop>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#gradient)">
+                    <animate attributeName="d"
+                        dur="10000ms"
+                        repeatCount="indefinite"
+                        values="M447.5,312.5Q422,375,370,417.5Q318,460,255.5,443.5Q193,427,129.5,405.5Q66,384,74,317Q82,250,92,196.5Q102,143,145,101Q188,59,247,69Q306,79,368.5,98.5Q431,118,452,184Q473,250,447.5,312.5Z;
+                        M399.5,303Q396,356,353.5,397Q311,438,254.5,424Q198,410,131,397.5Q64,385,81.5,317.5Q99,250,81,182Q63,114,122,76Q181,38,252.5,30Q324,22,353,88Q382,154,392.5,202Q403,250,399.5,303Z;
+                        M437.5,301.5Q392,353,357,412Q322,471,260,440Q198,409,161.5,375Q125,341,110,295.5Q95,250,100.5,197.5Q106,145,145,96Q184,47,243,68Q302,89,359,109Q416,129,449.5,189.5Q483,250,437.5,301.5Z;
+                        M438,317.5Q436,385,380,431.5Q324,478,257.5,454.5Q191,431,150,391.5Q109,352,80.5,301Q52,250,57.5,182Q63,114,123,79.5Q183,45,248.5,49Q314,53,367.5,89.5Q421,126,430.5,188Q440,250,438,317.5Z;
+                        M447.5,312.5Q422,375,370,417.5Q318,460,255.5,443.5Q193,427,129.5,405.5Q66,384,74,317Q82,250,92,196.5Q102,143,145,101Q188,59,247,69Q306,79,368.5,98.5Q431,118,452,184Q473,250,447.5,312.5Z"
+                    >
+                    </animate>
+                </path>
+            </g>
+        </svg>
+    </div>
+    <div class="bg_defalut bg_circle_3">
+        <svg viewBox="0 0 800 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+            <g transform="translate(121.78795623779297, 47.74541473388672)">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color: rgb(238, 205, 163);"></stop>
+                        <stop offset="100%" style="stop-color: rgb(239, 98, 159);"></stop>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#gradient)">
+                    <animate attributeName="d"
+                        dur="10000ms"
+                        repeatCount="indefinite"
+                        values="M447.5,312.5Q422,375,370,417.5Q318,460,255.5,443.5Q193,427,129.5,405.5Q66,384,74,317Q82,250,92,196.5Q102,143,145,101Q188,59,247,69Q306,79,368.5,98.5Q431,118,452,184Q473,250,447.5,312.5Z;
+                        M399.5,303Q396,356,353.5,397Q311,438,254.5,424Q198,410,131,397.5Q64,385,81.5,317.5Q99,250,81,182Q63,114,122,76Q181,38,252.5,30Q324,22,353,88Q382,154,392.5,202Q403,250,399.5,303Z;
+                        M437.5,301.5Q392,353,357,412Q322,471,260,440Q198,409,161.5,375Q125,341,110,295.5Q95,250,100.5,197.5Q106,145,145,96Q184,47,243,68Q302,89,359,109Q416,129,449.5,189.5Q483,250,437.5,301.5Z;
+                        M438,317.5Q436,385,380,431.5Q324,478,257.5,454.5Q191,431,150,391.5Q109,352,80.5,301Q52,250,57.5,182Q63,114,123,79.5Q183,45,248.5,49Q314,53,367.5,89.5Q421,126,430.5,188Q440,250,438,317.5Z;
+                        M447.5,312.5Q422,375,370,417.5Q318,460,255.5,443.5Q193,427,129.5,405.5Q66,384,74,317Q82,250,92,196.5Q102,143,145,101Q188,59,247,69Q306,79,368.5,98.5Q431,118,452,184Q473,250,447.5,312.5Z"
+                    >
+                    </animate>
+                </path>
+            </g>
+        </svg>
+    </div-->
+    <!-- //배경 아이콘 Bg -->
+</div>
+<!-- //[Layout] - Wrap -->
+
+<script type="text/javascript">
+// 초기 UP 클래스 추가
+var h1Title = document.querySelector(".h1Type");
+var mobileMenu = document.querySelector("#js_selectMenu");
+var webMenu = document.querySelector("#js_tabMenu");
+var unitList = document.querySelector("#js_projectView");
+setTimeout(() => {
+    h1Title.classList.add("animate_up_4", "h1Title_animate");
+    mobileMenu.classList.add("animate_up_8");
+    webMenu.classList.add("animate_up_8");
+    unitList.classList.add("animate_up_12");
+});
+
+// 포트폴리오
+portforlio({
+    selectMenu : "js_selectMenu",
+    tabMenu : "js_tabMenu",
+    unit : "js_projectView",
+    layer : ".pop_view",
+    expendFlag : false,
+    active : 1
+});
+</script>
 
 </body>
 </html>
